@@ -1,0 +1,7 @@
+
+<h1><%= @pr.title %></h1>
+
+ <!-- Mostrar la imagen del producto con tamaño fijo -->
+ <%= image_tag @pr.image, style: "width: 200px; height: 200px;" if @pr.image.attached? %>
+<p>$<%= @pr.price%></p>
+<p><%= @pr.description %></p>

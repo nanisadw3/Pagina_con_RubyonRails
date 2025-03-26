@@ -14,9 +14,14 @@ class ProductsController < ApplicationController
         end
     end
 
-    private
+    private # metodo privado
 
     def product_params
         params.require(:product).permit(:title, :description, :image)
+    end
+
+    public # metodo publico
+    def show
+        @pr = Product.find(params[:id]) # mandamos por parametros el id del producto
     end
 end

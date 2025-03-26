@@ -1,14 +1,18 @@
+
 <h1>Productos</h1>
 
 <h2>Lista de Productos</h2>
 
 <% @products.each do |product| %>
-  <!-- Título del producto -->
-  <h3><%= product.title %></h3>
+  <!-- Enlace al producto -->
+  <%= link_to product_path(product.id) do %>
+    <!-- Título del producto -->
+    <h3><%= product.title %></h3>
 
-  <!-- Descripción del producto -->
-  <p><%= product.description %></p>
+    <% end %>
+    <!-- Descripción del producto -->
+    <p><%= product.description %></p>
 
-  <!-- Mostrar la imagen del producto con tamaño fijo -->
-  <%= image_tag product.image, style: "width: 200px; height: 200px;" if product.image.attached? %>
+   
+  
 <% end %>
