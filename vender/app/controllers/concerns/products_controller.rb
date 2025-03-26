@@ -1,7 +1,22 @@
-# Declaración de la clase
-class ProductsController < ApplicationController # Heredamos de ApplicationController que es de Rails
-    def index # Método index
-        @products = Product.all # Variable de instancia que contiene todos los productos obtenemos todos los productos de la base de datos
+class ProductsController < ApplicationController
+    def index
+        @products = Product.all
+    end
+
+    def create
+        @product = Product.new(product_params)
+        if @product.save
+            # Aquí se asigna la imagen manualmente
+            @product.image.attach(params[:product][:image]) if params[:product][:image]
+            redirect_to @product
+        else
+            render :new
+        end
+    end
+
+    private
+
+    def product_params
+        params.require(:product).permit(:title, :description, :image)
     end
 end
-# Fin de la clase
