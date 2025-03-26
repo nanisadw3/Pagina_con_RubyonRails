@@ -1,0 +1,14 @@
+<!-- Título principal de la página -->
+<h1>Productos</h1> 
+
+<!-- Subtítulo de la lista de productos -->
+<h2>Lista de Productos</h2>
+
+<!-- Iniciamos un ciclo para recorrer todos los productos que se pasaron a la vista -->
+<% @products.each do |product| %>  <!-- @products es la variable de instancia con todos los productos -->
+  
+  <!-- Para cada producto, mostramos su título -->
+  <h2><%= product.title %></h2> <!-- product.title accede al atributo 'title' de cada objeto product -->
+  <span>$<%= product.price %></span> <!-- product.price accede al atributo 'price' de cada objeto product -->
+
+<% end %> <!-- Finalizamos el ciclo -->
