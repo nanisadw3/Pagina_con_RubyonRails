@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: vender_development
+  username: postgres        # Si tu usuario en PostgreSQL es "postgres"
+  password: 246810          # Aquí es donde agregas tu contraseña
+
+test:
+  <<: *default
+  database: vender_test
+  username: postgres        # Reemplaza si tienes un usuario diferente
+  password: 246810          # Si es el mismo usuario y contraseña
+
+production:
+  <<: *default
+  database: vender_production
+  username: postgres        # Asegúrate de usar el mismo usuario
+  password: <%= ENV["VENDER_DATABASE_PASSWORD"] %>
