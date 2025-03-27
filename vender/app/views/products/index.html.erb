@@ -1,11 +1,8 @@
-
-<h1>Productos</h1>
-
 <h2>Lista de Productos</h2>
 
 <% @products.each do |product| %>
   <!-- Enlace al producto -->
-  <%= link_to product_path(product.id) do %>
+  <%= link_to product_path(product.id), class: 'product' do %>
     <!-- Título del producto -->
     <h3><%= product.title %></h3>
 
